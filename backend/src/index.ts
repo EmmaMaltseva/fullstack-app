@@ -10,7 +10,7 @@ app.use(cors({ origin: 'http://localhost:3000' }));
 app.use('/api', userRoutes);
 
 app.get('/api/hello', (req, res) => {
-  res.json({ message: 'Hello from Express backend!'});
+  res.json({ message: 'Привет с бэкенда!'});
 });
 
 const PORT = 4000;
