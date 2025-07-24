@@ -15,5 +15,5 @@ app.get('/api/hello', (req, res) => {
 
 const PORT = 4000;
 app.listen(PORT, () => {
-   console.log(`🚀 Мы соединились с бэком, лежащим на адресе http://localhost:${PORT}`);
+   console.log(`🚀 Бэк запущен на адресе http://localhost:${PORT}`);
 });
