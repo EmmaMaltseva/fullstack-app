@@ -1,6 +1,7 @@
 'use client'; // добавь только если используешь App Router
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
+import Inner from '@components/Inner';
 
 type User = {
   id: number;
@@ -8,9 +9,23 @@ type User = {
   email: string;
 };
 
+type InnerRefHandle = {
+  runCodeInChild: () => void;
+};
+
 export default function UsersPage() {
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
+  // const ref = useRef({
+  //   renderCount: 0
+  // });
+  // ref.current.renderCount += 1;
+  // const num = ref.current.renderCount;
+
+  const ref = useRef<InnerRefHandle>(null);
+  const handleSomething = () => {
+    ref.current?.runCodeInChild();
+  }
 
   useEffect(() => {
     fetch('http://localhost:4000/api/users')
@@ -27,6 +42,8 @@ export default function UsersPage() {
 
   return (
     <main className='p-6'>
+      <Inner ref={ref} />
+      <button onClick={handleSomething}>Жми чтобы получить данные из дочернего кмопонента</button>
       <h1 className='text-2xl font-bold mb-4'>Список пользователей</h1>
       {loading ? (
         <p>Загрузка пользователей...</p>
@@ -45,8 +62,6 @@ export default function UsersPage() {
           ))}
         </ul>
       )
-
-
       }
     </main>
   )
