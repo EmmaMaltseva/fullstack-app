@@ -34,7 +34,7 @@ export default function AuthForm({ type }: { type: "login" | "register" }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4">
       {type === "register" && (
         <input
           type="text"
@@ -42,6 +42,7 @@ export default function AuthForm({ type }: { type: "login" | "register" }) {
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
+          className="w-full p-2 border rounded"
         />
       )}
       <input
@@ -50,6 +51,7 @@ export default function AuthForm({ type }: { type: "login" | "register" }) {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
+        className="w-full p-2 border rounded"
       />
       <input
         type="password"
@@ -57,9 +59,13 @@ export default function AuthForm({ type }: { type: "login" | "register" }) {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         required
+        className="w-full p-2 border rounded"
       />
       {error && <p>{error}</p>}
-      <button type="submit">
+      <button 
+        type="submit"
+        className="bg-blue-600 text-white px-4 py-2 rounded"
+      >
         {type === "login" ? "Войти" : "Зарегистрироваться"}
       </button>
     </form>
