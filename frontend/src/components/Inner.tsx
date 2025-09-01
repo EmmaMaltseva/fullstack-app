@@ -4,18 +4,16 @@ const Inner = forwardRef((props, ref) => {
   const [innerState, setInnerState] = useState(0);
 
   useEffect(() => {
-    console.log('Внутренне состояние изменено', innerState)
+    console.log("Внутренне состояние изменено", innerState);
   }, [innerState]);
 
   useImperativeHandle(ref, () => ({
     runCodeInChild: () => {
-      setInnerState(prev => prev + 1)
-    }
+      setInnerState((prev) => prev + 1);
+    },
   }));
 
-  return (
-    <div>{innerState}</div>
-  )
-})
+  return <div>{innerState}</div>;
+});
 
 export default Inner;
