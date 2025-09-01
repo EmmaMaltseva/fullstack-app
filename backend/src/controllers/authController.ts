@@ -70,3 +70,13 @@ export const login = async (req: Request, res: Response) => {
       res.status(500).json({ message: 'Ошибка сервера'});
     }
 }
+
+export const logout = async (req: Request, res: Response) => {
+  res.clearCookie('token', {
+    httpOnly: true,
+    secure: false, 
+    sameSite: 'strict'
+  })
+
+  res.json({ message: 'Вы вышли из системы' });
+}
