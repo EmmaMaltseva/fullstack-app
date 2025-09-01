@@ -7,7 +7,7 @@ const prisma = new PrismaClient();
 const JWT_SECRET = process.env.JWT_SECRET || 'dev_secret';
 
 export const register = async (req: Request, res: Response) => {
-  const { email, password } = req.body;
+  const { name, email, password } = req.body;
 
   if (!email || !password) return res.status(400).json({ message: 'Email и пароль обязательны'});
 
@@ -18,7 +18,11 @@ export const register = async (req: Request, res: Response) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const user = await prisma.user.create({
-      data: { email, password: hashedPassword },
+      data: { 
+        name, 
+        email, 
+        password: hashedPassword 
+      },
     });
 
     const token = jwt.sign({ userId: user.id }, JWT_SECRET, { expiresIn: '7d' });
