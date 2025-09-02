@@ -34,40 +34,58 @@ export default function AuthForm({ type }: { type: "login" | "register" }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4">
-      {type === "register" && (
-        <input
-          type="text"
-          placeholder="Имя"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-          className="w-full p-2 border rounded"
-        />
-      )}
-      <input
-        type="email"
-        placeholder="Почта"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-        className="w-full p-2 border rounded"
-      />
-      <input
-        type="password"
-        placeholder="Пароль"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-        className="w-full p-2 border rounded"
-      />
-      {error && <p>{error}</p>}
-      <button 
-        type="submit"
-        className="bg-blue-600 text-white px-4 py-2 rounded"
-      >
-        {type === "login" ? "Войти" : "Зарегистрироваться"}
-      </button>
-    </form>
+    <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+      <form onSubmit={handleSubmit} className="space-y-6">
+        {type === "register" && (
+          <div>
+            <label htmlFor="name" className="block text-sm/6 font-medium text-gray-900">Имя</label>
+            <div className="mt-2">
+              <input
+                id="name"
+                type="text"
+                placeholder="Имя"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                className="w-full p-2 border rounded"
+              />
+            </div>
+          </div>
+        )}
+        <div>
+          <label className="block text-sm/6 font-medium text-gray-900">E-mail</label>
+          <div className="mt-2">
+            <input
+              type="email"
+              placeholder="Почта"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="w-full p-2 border rounded"
+            />
+          </div>
+        </div>
+        <div>
+        <label className="block text-sm/6 font-medium text-gray-900">Пароль</label>
+        <div className="mt-2">
+          <input
+            type="password"
+            placeholder="Пароль"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            className="w-full p-2 border rounded"
+          />
+        </div>
+        </div>
+        {error && <p>{error}</p>}
+        <button 
+          type="submit"
+          className="bg-blue-600 text-white px-4 py-2 rounded"
+        >
+          {type === "login" ? "Войти" : "Зарегистрироваться"}
+        </button>
+      </form>
+    </div>
   );
 }
