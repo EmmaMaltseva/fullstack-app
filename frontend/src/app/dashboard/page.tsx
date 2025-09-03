@@ -2,7 +2,7 @@ import { isAuthenticated } from "lib/auth";
 import Link from "next/link";
 
 export default async function DashboardPage() {
-  const auth = isAuthenticated();
+  const auth = await isAuthenticated();
 
   if (!auth) {
     return (
@@ -18,7 +18,7 @@ export default async function DashboardPage() {
   return (
       <div className="p-8">
         <h1 className="text-2xl">Приватный Dashboard</h1>
-        <form action='/logout' method="post">
+        <form action='/api/logout' method="POST">
           <button className="bg-red-500 text-white px-4 py-2 mt-4 rounded">
             Выйти
           </button>
