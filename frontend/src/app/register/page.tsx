@@ -1,5 +1,4 @@
 import AuthForm from "@components/AuthFrom";
-import { Robot } from "@components/icons/Robot";
 import { House } from "@components/icons/House";
 
 export default function RegisterPage() {
