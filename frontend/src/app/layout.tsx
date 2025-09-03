@@ -4,9 +4,9 @@ import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: '--font-inter',
-  display: 'swap',
-})
+  variable: "--font-inter",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Админ-панель",
@@ -20,11 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html className={`${inter.variable} h-full bg-white`} lang="en">
-      <body
-        className={`font-sans antialiased h-full`}
-      >
-        {children}
-      </body>
+      <body className={`h-full font-sans antialiased`}>{children}</body>
     </html>
   );
 }

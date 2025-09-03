@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
       issuer: {
         and: [/\.[jt]sx?$/], // <-- Важно: только для .js/.ts/.jsx/.tsx файлов
       },
-      use: ['@svgr/webpack'],
+      use: ["@svgr/webpack"],
     });
 
     return config;

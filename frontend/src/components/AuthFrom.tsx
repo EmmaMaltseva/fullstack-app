@@ -48,7 +48,12 @@ export default function AuthForm({ type }: { type: "login" | "register" }) {
       {loading && <LoaderOverlay />}
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label htmlFor="email" className="block text-sm/6 font-medium text-gray-900">E-mail</label>
+          <label
+            htmlFor="email"
+            className="block text-sm/6 font-medium text-gray-900"
+          >
+            E-mail
+          </label>
           <div className="mt-2">
             <input
               id="email"
@@ -62,22 +67,32 @@ export default function AuthForm({ type }: { type: "login" | "register" }) {
           </div>
         </div>
         <div>
-        <label htmlFor="password" className="block text-sm/6 font-medium text-gray-900">Пароль</label>
-        <div className="mt-2">
-          <input
-            id="password"
-            type="password"
-            placeholder="Пароль"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-          />
-        </div>
+          <label
+            htmlFor="password"
+            className="block text-sm/6 font-medium text-gray-900"
+          >
+            Пароль
+          </label>
+          <div className="mt-2">
+            <input
+              id="password"
+              type="password"
+              placeholder="Пароль"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+            />
+          </div>
         </div>
         {type === "register" && (
           <div>
-            <label htmlFor="name" className="block text-sm/6 font-medium text-gray-900">Имя</label>
+            <label
+              htmlFor="name"
+              className="block text-sm/6 font-medium text-gray-900"
+            >
+              Имя
+            </label>
             <div className="mt-2">
               <input
                 id="name"
@@ -91,8 +106,12 @@ export default function AuthForm({ type }: { type: "login" | "register" }) {
             </div>
           </div>
         )}
-        {error && <p className="block rounded-md bg-red-100 px-3 py-1.5 text-sm/6 text-red-600">{error}</p>}
-        <button 
+        {error && (
+          <p className="block rounded-md bg-red-100 px-3 py-1.5 text-sm/6 text-red-600">
+            {error}
+          </p>
+        )}
+        <button
           type="submit"
           className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:text-sm/6"
         >

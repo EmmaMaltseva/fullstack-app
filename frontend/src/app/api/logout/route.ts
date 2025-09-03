@@ -1,13 +1,15 @@
-import { NextResponse } from 'next/server'
+import { NextResponse } from "next/server";
 
 export async function POST() {
-  const response = NextResponse.redirect(new URL('/', process.env.NEXT_PUBLIC_SITE_URL))
+  const response = NextResponse.redirect(
+    new URL("/", process.env.NEXT_PUBLIC_SITE_URL),
+  );
 
-  response.cookies.set('token', '', {
+  response.cookies.set("token", "", {
     httpOnly: true,
-    path: '/',
+    path: "/",
     maxAge: 0, // удалить куку
-  })
+  });
 
-  return response
+  return response;
 }

@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
 export default function LoaderOverlay() {
   return (
-    <div className="fixed inset-0 z-50 bg-white opacity-25 flex items-center justify-center pointer-events-auto">
-      <div className="w-8 h-8 border-2 border-t-transparent border-black rounded-full animate-spin"></div>
+    <div className="pointer-events-auto fixed inset-0 z-50 flex items-center justify-center bg-white opacity-25">
+      <div className="h-8 w-8 animate-spin rounded-full border-2 border-black border-t-transparent"></div>
     </div>
-  )
+  );
 }
