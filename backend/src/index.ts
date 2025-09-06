@@ -4,6 +4,8 @@ import cookieParser from "cookie-parser";
 import userRoutes from "./routes/userRoutes";
 import authRoutes from "./routes/authRoutes";
 import protectedRoutes from "./routes/protectedRoutes";
+import productRoutes from "./routes/productRoutes";
+import orderRoutes from "./routes/orderRoutes";
 
 const app = express();
 
@@ -14,6 +16,8 @@ app.use(cookieParser());
 app.use("/api", userRoutes);
 app.use("/api", authRoutes);
 app.use("/api", protectedRoutes);
+app.use("/api/products", productRoutes);
+app.use("/api/orders", orderRoutes);
 
 app.get("/api/hello", (req, res) => {
   res.json({ message: "Привет с бэкенда!" });
