@@ -6,6 +6,7 @@ import authRoutes from "./routes/authRoutes";
 import protectedRoutes from "./routes/protectedRoutes";
 import productRoutes from "./routes/productRoutes";
 import orderRoutes from "./routes/orderRoutes";
+import adminRoutes from "./routes/adminRoutes";
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use("/api", authRoutes);
 app.use("/api", protectedRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/orders", orderRoutes);
+app.use("/api/admin", adminRoutes);
 
 app.get("/api/hello", (req, res) => {
   res.json({ message: "Привет с бэкенда!" });

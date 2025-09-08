@@ -63,9 +63,11 @@ export const login = async (req: Request, res: Response) => {
       return res.status(401).json({ error: "Неверный email или пароль" });
     }
 
-    const token = jwt.sign({ userId: user.id }, JWT_SECRET, {
-      expiresIn: "1h",
-    });
+    const token = jwt.sign(
+      { userId: user.id, role: user.role }, 
+      JWT_SECRET, 
+      { expiresIn: "1h" }
+    );
 
     res
       .cookie("token", token, {
