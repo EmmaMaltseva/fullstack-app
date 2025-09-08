@@ -9,8 +9,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Админ-панель",
-  description: "Админ-панель для управления интернет магазином",
+  title: "PShop",
+  description: "Интернет магазин аксессуаров для PlayStation",
 };
 
 export default function RootLayout({
