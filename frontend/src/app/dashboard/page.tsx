@@ -27,6 +27,9 @@ export default async function DashboardPage() {
       <Link href="/cart" className="text-pink-600 underline">
         Корзина
       </Link>
+      <Link href="/admin" className="text-pink-600 underline">
+        Админ
+      </Link>
       <form action="/api/logout" method="POST">
         <button className="mt-4 rounded bg-red-500 px-4 py-2 text-white">
           Выйти
