@@ -2,7 +2,9 @@ import { Response, Request } from "express";
 import prisma from "../prismaClient";
 
 export const getAllProducts = async (req: Request, res: Response) => {
-  const products = await prisma.product.findMany();
+  const products = await prisma.product.findMany({
+    orderBy: { createdAt: "desc" },
+  });
   res.json(products);
 };
 
