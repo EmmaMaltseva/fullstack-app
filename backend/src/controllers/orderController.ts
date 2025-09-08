@@ -1,17 +1,29 @@
 import { Response, Request } from "express";
 import prisma from "../prismaClient";
+import { AuthRequest } from "../middleware/authMiddleware"
 
-export const getUserOrders = async (req: Request, res: Response) => {
-  const userId = Number(req.params.userId);
+export const getUserOrders = async (req: AuthRequest, res: Response) => {
+  const userId = req.userId;
+
+  if (!userId) {
+    return res.status(401).json({ error: "Пользователь не авторизован" });
+  }
+
   const orders = await prisma.order.findMany({
     where: { userId },
     include: { items: true },
   });
+
   res.json(orders);
 }
 
-export const createOrder = async (req: Request, res: Response) => {
-  const { userId, items } = req.body; // items: [{ productId, quantity }]
+export const createOrder = async (req: AuthRequest, res: Response) => {
+  const userId = req.userId;
+  const { items } = req.body; // items: [{ productId, quantity }]
+
+  if (!userId) {
+    return res.status(401).json({ error: "Пользователь не авторизован" });
+  }
   
   const products = await prisma.product.findMany({
     where: { id: { in: items.map((item: any) => item.productId) } },
