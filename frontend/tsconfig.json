@@ -24,6 +24,6 @@
       "@icons/*": ["assets/icons/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/cart"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/cart", "src/components/LikeButton.jsx"],
   "exclude": ["node_modules"]
 }

@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { useCart } from "lib/cartStore";
 import ProductCard from "@components/ProductCard";
-import Link from "next/link";
 
 type Product = { //TODO: Вынеси типы в отельный файл
   id: number;
@@ -32,7 +31,6 @@ export default function CatalogPage() {
         ))
         }
       </div>
-      <Link href="/cart">В корзину</Link>
     </div>
   )
 }

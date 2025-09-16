@@ -1,15 +1,9 @@
 import express from "express";
-import { getUsers } from "../userService";
+import { getUsers, getUserById } from "../controllers/userControllers";
 
 const router = express.Router();
 
-router.get("/users", async (req, res) => {
-  try {
-    const users = await getUsers();
-    res.json(users);
-  } catch (error) {
-    res.status(500).json({ error: "Запрос поиска юзера провалился" });
-  }
-});
+router.get("/", getUsers);
+router.get("/:id", getUserById);
 
 export default router;
